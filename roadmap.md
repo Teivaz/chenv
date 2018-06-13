@@ -4,6 +4,7 @@
  - [X] command version
 
 # Version 0.2
+ - [] transactional registry modification
  - [] saving original environment
  - [] system environment backup
  - [] user environment backup

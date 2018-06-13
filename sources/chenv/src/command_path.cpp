@@ -12,10 +12,10 @@ EnvVar command_path(EnvVar::Origin env) {
 		path = command_get(L"path");
 	}
 	if (env == EnvVar::Origin::RegSystem || env == EnvVar::Origin::RegEffective) {
-		path = path | command_getreg(RegKey::LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment", L"path", true);
+		path = path | command_getreg(Reg::Key::LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment", L"path", true);
 	}
 	if (env == EnvVar::Origin::RegUser || env == EnvVar::Origin::RegEffective) {
-		path = path | command_getreg(RegKey::CURRENT_USER, L"Environment", L"path", true);
+		path = path | command_getreg(Reg::Key::CURRENT_USER, L"Environment", L"path", true);
 	}
 	return path;
 }
@@ -26,10 +26,10 @@ EnvVar command_pathext(EnvVar::Origin env) {
 		pathext = command_get(L"pathext");
 	}
 	if (env == EnvVar::Origin::RegSystem || env == EnvVar::Origin::RegEffective) {
-		pathext |= command_getreg(RegKey::LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment", L"pathext", true);
+		pathext |= command_getreg(Reg::Key::LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment", L"pathext", true);
 	}
 	if (env == EnvVar::Origin::RegUser || env == EnvVar::Origin::RegEffective) {
-		auto pathextUser = command_getreg(RegKey::CURRENT_USER, L"Environment", L"pathext", true);
+		auto pathextUser = command_getreg(Reg::Key::CURRENT_USER, L"Environment", L"pathext", true);
 		if (pathextUser) {
 			pathext = pathextUser;
 		}

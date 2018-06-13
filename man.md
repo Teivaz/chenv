@@ -1,8 +1,10 @@
 
+# version
+> `chenv version`
 
+Prints the current version of the program.
 
 # which
-
 > `chenv which <file>`
 
 Promts the path to the file that will be executed
@@ -52,9 +54,9 @@ Promts a list of files that might be executed in the order of priority. The numb
 ```
 
 # use
-
 > `chenv use <preset>`
 
 Applies preset of the saved environment setup.
 
-
+# save
+> `chenv save

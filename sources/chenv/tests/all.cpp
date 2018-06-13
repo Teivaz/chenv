@@ -40,7 +40,7 @@ TEST(CommandGet, CaseInsensitivity) {
 }
 
 TEST(ComandGetReg, Path) {
-	auto varReg = command_getreg(RegKey::CURRENT_USER, L"Environment", L"path");
+	auto varReg = command_getreg(Reg::Key::CURRENT_USER, L"Environment", L"path");
 	EXPECT_TRUE((bool)varReg);
 	EXPECT_TRUE(varReg.mType == EnvVar::Type::ExpandableString);
 	auto varEnv = command_get(L"path");
@@ -49,12 +49,12 @@ TEST(ComandGetReg, Path) {
 }
 
 TEST(ComandGetReg, ComplexSubKey) {
-	auto varReg = command_getreg(RegKey::LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment", L"path");
+	auto varReg = command_getreg(Reg::Key::LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment", L"path");
 	EXPECT_TRUE((bool)varReg);
 }
 
 TEST(ComandGetReg, SystemPath) {
-	auto varReg = command_getreg(RegKey::LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment", L"path");
+	auto varReg = command_getreg(Reg::Key::LOCAL_MACHINE, L"System\\CurrentControlSet\\Control\\Session Manager\\Environment", L"path");
 	EXPECT_TRUE(varReg.mType == EnvVar::Type::ExpandableString);
 	auto varEnv = command_get(L"path");
 	EXPECT_TRUE(varReg.data().length() >= varEnv.data().length());

@@ -1,13 +1,6 @@
 #pragma once
 #include "envvar.h"
+#include "registry.h"
 #include <string>
 
-enum class RegKey {
-	CLASSES_ROOT,
-	CURRENT_CONFIG,
-	CURRENT_USER,
-	LOCAL_MACHINE,
-	USERS,
-};
-
-EnvVar command_getreg(RegKey key, std::wstring path, std::wstring value, bool expand = false);
+EnvVar command_getreg(Reg::Key key, std::wstring path, std::wstring valueName, bool expand = false);

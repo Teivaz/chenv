@@ -15,7 +15,7 @@ if(YES)
 	set(headers "${headers}" "${headers_test}")
 endif()
 
-set(deps "gtest" "Kernel32.lib" "Shlwapi.lib")
+set(deps "gtest" "Kernel32.lib" "Shlwapi.lib" "KtmW32.lib")
 
 add_executable("${PROJ_NAME}" ${sources} ${headers})
 
