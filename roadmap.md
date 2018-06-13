@@ -1,6 +1,7 @@
 # Version 0.1
  - [x] command which
  - [x] command listpaths
+ - [X] command version
 
 # Version 0.2
  - [] saving original environment
@@ -11,7 +12,6 @@
  - [] unloading environment preset (command pop)
 
 # Version 1.0
- - [] installer
- - [] uninstaller
+ - [] installer/uninstaller
  - [] command help
- - [] tests
+ - [] tests in the container
